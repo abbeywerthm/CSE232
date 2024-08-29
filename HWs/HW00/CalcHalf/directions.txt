@@ -1,0 +1,4 @@
+Adjust the file provided (CalcHalf/main.cpp)
+to have a function, named CalcHalf that 
+returns half of its sole argument.
+
