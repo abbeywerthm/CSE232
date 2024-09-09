@@ -1,0 +1,12 @@
+In the open file, named "terminal_command.cpp", 
+there is a C++ program that outputs the command to
+run a python program that is located in the file "run_me.py". 
+Change the program to instead output to compile the C++ file 
+named "compile_me.cpp". Be sure to use the arguments that 
+Lab 00 teaches in order.
+
+#include <iostream>
+
+int main() {
+  std::cout << "python3 run_me.py";
+}
