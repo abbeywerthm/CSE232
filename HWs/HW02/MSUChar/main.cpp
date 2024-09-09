@@ -10,4 +10,5 @@ int main (){
             ++count;
         }
     } while(c != '.');
+    std::cout << "MSU characters: "<<count<<"."<<std::endl;
 }
