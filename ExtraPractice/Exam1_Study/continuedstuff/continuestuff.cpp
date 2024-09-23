@@ -11,11 +11,11 @@ int main(){
 }
 
 /*If x=0 and its less than 4, it will print,
-and then the ++x lets it increement
+and then the ++x lets it increment
 
 so it prints " 0 ", and then 1<4 but not equal to 2,
 so it prints " 1 ", and then 2<4 but 2==2 so 
-conitnue occurs and the 2 does not print, now conitnueing
+continue occurs and the 2 does not print, now continuing
 to 3<4 but not ==2 so it prints " 3 " and then 4 IS NOT > 4
 so it stops
 
