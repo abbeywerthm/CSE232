@@ -1,0 +1,9 @@
+Everything implemented on this page should be in the file named "Functions/main.cpp".
+Main function
+Write a main function that reads an int from standard input and prints that value doubled.
+
+
+Now, add a function named “Triple” that takes a single argument (an int) and returns that value tripled.
+
+Now, add a function named “Closest_Multiple_Of_13” that takes a single argument (an int) and returns the closest integer to the argument that is a multiple of 13. (13 is a certain someone’s favorite number).
+

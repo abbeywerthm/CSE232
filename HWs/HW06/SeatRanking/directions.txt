@@ -1,0 +1,40 @@
+Taylor Swift is currently conducting a record breaking world tour, and seats are extremely expensive, especially near the stage. Being closer to the stage is always better than not, but unfortunately some of her more enthusiastic fans scream or cry her lyrics, despite not having nearly the same level of talent as "Mother". Being close to such fans unfortunately makes the experience less pleasant.
+
+Lets imagine that the location of such fans could be known before you needed to purchase tickets (perhaps the super fans were able to buy tickets in a pre-sale event). I want you to write a program that can output the relative value of a grid of seats, which takes into account the distance from the stage and the distance from the loud super fans.
+
+Lets envision a grid of 20 by 10 seats, where the origin (0,0) is on the bottom left. Position (5, 7) would be 5 seats from the left edge, and 7 seats up from the bottom. The stage is located along the bottom edge. Seats adjacent to the stage (x, 0) have a value of 100, those one seat further have a value of 95, those one seat further have a value of 90 and so forth. Seats adjacent to a super fan (in the N, S, E, and W directions) have their value reduced by 40, those one seat further away (and along the diagonals) have their value reduced by 20.
+
+The location of seats purchased by super fans will be provided to standard input in this form:
+
+
+(5,7)
+(13,3)
+(14,3)
+(14,2)
+(13,1)
+(8,9)
+(0,7)
+
+Your program should output the value of each seat in the grid. Please put asterisks (‘*’) in the seats purchased by super fans.
+
+For the position of the super fans in the input above, the correct output should look like this:
+
+
+  35,  55,  55,  55,  55,  35,  35,  15,   *,  15,  35,  55,  55,  55,  55,  55,  55,  55,  55,  55,
+  20,  40,  60,  60,  40,  20,  40,  40,  20,  40,  60,  60,  60,  60,  60,  60,  60,  60,  60,  60,
+   *,  25,  45,  45,  25,   *,  25,  45,  45,  65,  65,  65,  65,  65,  65,  65,  65,  65,  65,  65,
+  30,  50,  70,  70,  50,  30,  50,  70,  70,  70,  70,  70,  70,  70,  70,  70,  70,  70,  70,  70,
+  55,  75,  75,  75,  75,  55,  75,  75,  75,  75,  75,  75,  75,  55,  55,  75,  75,  75,  75,  75,
+  80,  80,  80,  80,  80,  80,  80,  80,  80,  80,  80,  80,  60,  20,   0,  60,  80,  80,  80,  80,
+  85,  85,  85,  85,  85,  85,  85,  85,  85,  85,  85,  65,  25,   *,   *,   5,  65,  85,  85,  85,
+  90,  90,  90,  90,  90,  90,  90,  90,  90,  90,  90,  90,  30, -50,   *,  30,  70,  90,  90,  90,
+  95,  95,  95,  95,  95,  95,  95,  95,  95,  95,  95,  75,  55,   *,  -5,  55,  95,  95,  95,  95,
+ 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,  80,  60,  60, 100, 100, 100, 100, 100,
+
+Example Ranking Calculation
+Can you see the lowest ranked seat in the grid?
+It is the -50.
+Why is it so low?
+Well, its ranking starts at 90 because it is two rows back from the stage, not bad. But there are 3 super fans directly adjacent to it reducing its ranking by 40 each. So now it is at -30 (90 - 40 * 3). But there’s also one super fan 2 away from it, reducing it another 20 to its final ranking of -50.
+
+

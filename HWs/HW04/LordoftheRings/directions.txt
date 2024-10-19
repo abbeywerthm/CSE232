@@ -1,0 +1,12 @@
+Lord of the Rings
+It began with the forging of the Great Rings. Three were given to the Elves, immortal, wisest and fairest of all beings. Seven to the Dwarf-Lords, great miners and craftsmen of the mountain halls. And nine, nine rings were gifted to the race of Men, who above all else desire power. For within these rings was bound the strength and the will to govern each race. But they were all of them deceived, for another ring was made. Deep in the land of Mordor, in the Fires of Mount Doom, the Dark Lord Sauron forged a master ring, and into this ring he poured his cruelty, his malice and his will to dominate all life.
+
+One ring to rule them all.
+
+
+
+
+Above is part of the prologue to the "The Fellowship Of The Ring", one of the greatest movies ever made. However, I prefer to read numbers as digits, instead of English words. So the word “Three” should be changed to "3", and so forth. Write a function, named “To_Digits” that takes a string and changes it so that the English words for the digits 0-9 are represented as digits. This program should be written in "To_Digits/main.cpp". For example, the above text should be changed to:
+It began with the forging of the Great Rings. 3 were given to the Elves, immortal, wisest and fairest of all beings. 7 to the Dwarf-Lords, great miners and craftsmen of the mountain halls. And 9, 9 rings were gifted to the race of Men, who above all else desire power. For within these rings was bound the strength and the will to govern each race. But they were all of them deceived, for another ring was made. Deep in the land of Mordor, in the Fires of Mount Doom, the Dark Lord Sauron forged a master ring, and into this ring he poured his cruelty, his malice and his will to dominate all life.
+
+1 ring to rule them all.

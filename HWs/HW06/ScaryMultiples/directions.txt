@@ -1,0 +1,3 @@
+
+
+In the file ScaryMultiples/main.cpp, you need to write function named SumButScared that takes a vector of integers. It returns an int which is the sum of those integers. However, if any of the integers are multiples of 13, an invalid_argument exception should be raised, you can supply whatever error message you want.

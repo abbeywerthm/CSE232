@@ -1,0 +1,16 @@
+HW 05
+This homework is referred here as a project as all of the work is building to a single program.
+For this project, you will develop a program that reads in a series of inputs, processes them, and outputs a series of analyses. As part of this development, we will specify a series of functions that will allow you to break down the problem into smaller pieces that will also be individually tested. On the next page are all of the individual specifications.
+Recommendations
+Short Functions. Most functions should generally be less than 10 C++ statements long. No function in this assignment should be more than 20 statements long. You don’t have to directly counting statements, but if you are writing excessively long functions that could have been simplified into smaller functions, you should correct that.
+No Duplicated Code. Code should be put into useful functions and called wherever needed, not essentially copy-pasted in multiple locations.
+Informative Names. All variables and functions should have clear names describing their purpose.
+Appropriate Type Modifiers. Whenever possible, const and references should be used to avoid unnecessary object copying and to make it clear what each function needs from its arguments.
+Conformance To The Style Guide. Ensure that your solution conforms to the white space rules, naming conventions, and other relevant parts of the style guide.
+Advice
+You should add comments wherever the code isn’t self-explanatory. We don’t require any specific comment format, but you should include them when you have complicated code that isn’t obvious in its purpose or function. Generally writing clear code obviates the need for within-function comments. Comments explaining how to use a function, especially functions that we don’t explicitly ask you to write, are always a good idea.
+We strongly recommend the use of a formatter (like those found in VSCode, clang-format, or those found online like http://format.krzaq.cc/ and https://codebeautify.org/cpp-formatter-beautifier) to automatically ensure that white space formatting is handled consistently.
+Don’t use the square brackets ([]) for indexing, instead use the at method, because it will raise an exception if you index out of bounds.
+Be sure you are writing your own tests and testing locally because there are hidden test cases that will only be run when we grade your project.
+Use the compiler flags -Wall -Wextra -Werror to make sure that your compiler is checking for common programming mistakes (at least one ones it can check for).
+If you run into bugs, narrow them down to the smallest function possible and test that function. It is a lot easier to smash a bug in a 10 statement function than a 100 statement main function.

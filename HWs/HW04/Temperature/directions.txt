@@ -1,0 +1,7 @@
+In the folder “Temperature” is file named "temperature.cpp". Write a class, named Temperature, that has a 2 parameter constructor. The first parameter is a double representing a temperature, the second parameter is a char, denoting if the unit is C, F, R, K. This class has only 4 methods, AsCelsius, AsFahrenheit, AsKelvin, and AsRankine. All of which take no arguments, and return the temperature value in that unit (as a double).
+
+
+Example:
+    Temperature t(13, 'C'); // 13.0 degrees C
+    t.AsKelvin(); // Should return 286.15 as that is the temp in Kelvin.
+    

@@ -1,0 +1,501 @@
+Project Specifications
+Please write your code in the three provided files:
+main.cpp should hold your main function
+WordList.h should hold your function declarations
+WordList.cpp should hold your function definitions
+It is strongly encouraged that you run your own tests from the terminal as the test runner is very slow. IO Redirection will be very useful for local testing.
+Submit
+
+LAST RUN on 10/10/2024, 7:28:00 PM
+Autograde Results
+
+
+Final Score: 100%
+
+
+Test Case	Status	Checks	Passed	Failed	Score
+0: AtListPosition: Simple tests	Passing	6	6	0	5 / 5
+1: AtListPosition: Substring matches	Passing	6	6	0	5 / 5
+2: AtListPosition: Testing ends of the string	Passing	12	12	0	3 / 3
+3: AtListPosition: Hidden	Passing	26	26	0	10 / 10
+4: FindInList: Simple Tests	Passing	8	8	0	2 / 2
+5: FindInList: Offset Tests	Passing	13	13	0	2 / 2
+6: FindInList: Duplicate Tests	Passing	13	13	0	2 / 2
+7: FindInList: Substring Tests	Passing	7	7	0	1 / 1
+8: FindInList: Hidden	Passing	34	34	0	10 / 10
+9: GetFirstInList: Simple Tests	Passing	5	5	0	1 / 1
+10: GetFirstInList: Duplicate and Substring Tests	Passing	4	4	0	1 / 1
+11: GetFirstInList: Hidden	Passing	5	5	0	10 / 10
+12: CountInList: Simple Tests	Passing	8	8	0	1 / 1
+13: CountInList: Substring Tests	Passing	5	5	0	1 / 1
+14: CountInList: Hidden	Passing	14	14	0	10 / 10
+15: AtListPosition: many tests	Passing	1	1	0	5 / 5
+16: Example IO Test from project description	Passing	0	0	0	1 / 1
+17: More IO Tests	Passing	0	0	0	0 / 0
+18: Hidden IO Test	Passing	0	0	0	5 / 5
+TOTAL					75 / 75
+
+Click on a row above to jump to the test case or scroll down for more details.
+
+
+Test Case 0: AtListPosition: Simple tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  bool AtListPosition(const std::string & word_list, const std::string & word, size_t pos);
+  std::string word_list="this,is,a,test,list,of,words";
+  CHECK(AtListPosition(word_list, "is", 5));
+  CHECK(!AtListPosition(word_list, "is", 4), "Off-by-one error");
+  CHECK(!AtListPosition(word_list, "is", 6), "Off-by-one error");
+  CHECK(!AtListPosition(word_list, "is", 20), "Right length, wrong word.");
+  CHECK(AtListPosition(word_list, "test", 10));
+  CHECK(AtListPosition(word_list, "list", 15));
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 1: AtListPosition: Substring matches
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  bool AtListPosition(const std::string & word_list, const std::string & word, size_t pos);
+  std::string word_list="this,is,a,test,list,of,words,and,it,is,longer";
+  CHECK(!AtListPosition(word_list, "is", 2), "Substring match only; incorrect.");
+  CHECK(AtListPosition(word_list, "is", 5), "Correct match.");
+  CHECK(!AtListPosition(word_list, "island", 5), "Pattern to long to match.");
+  CHECK(!AtListPosition(word_list, "is", 16), "Substring match only; incorrect.");
+  CHECK(!AtListPosition(word_list, "is", 33), "Right length, wrong word.");
+  CHECK(AtListPosition(word_list, "is", 36), "Another correct match.");
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 2: AtListPosition: Testing ends of the string
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  bool AtListPosition(const std::string & word_list, const std::string & word, size_t pos);
+  std::string word_list="another,string,this,one,for,testing,beginning,and,end,words";
+  CHECK(!AtListPosition(word_list, "is", 0), "Beginning of list, no match.");
+  CHECK(!AtListPosition(word_list, "an", 0), "Beginning of list, only partial match.");
+  CHECK(AtListPosition(word_list, "another", 0), "Beginning of list, correct match.");
+  CHECK(!AtListPosition(word_list, "anotherother", 0), "Beginning of list, pattern too long.");
+  CHECK(!AtListPosition(word_list, "bnother", 0), "Beginning of list, first letter fails.");
+  CHECK(!AtListPosition(word_list, "anothex", 0), "Beginning of list, last letter fails.");
+  CHECK(!AtListPosition(word_list, "is", 57), "End of list, no match.");
+  CHECK(!AtListPosition(word_list, "ds", 57), "End of list, only partial match.");
+  CHECK(AtListPosition(word_list, "words", 54), "End of list, correct match.");
+  CHECK(!AtListPosition(word_list, "fords", 54), "End of list, first letter fails.");
+  CHECK(!AtListPosition(word_list, "wordy", 54), "End of list, last letter fails.");
+  CHECK(!AtListPosition(word_list, "wordsmith", 54), "Pattern goes past end.");
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 3: AtListPosition: Hidden [HIDDEN]
+
+Result: PASSED!
+
+
+
+Test Case 4: FindInList: Simple Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t FindInList(const std::string & word_list, const std::string & word, size_t pos=0);
+  std::string word_list="A,list,of,words,to,use,for,testing";
+  CHECK(FindInList(word_list, "A") == 0u);
+  CHECK(FindInList(word_list, "list") == 2u);
+  CHECK(FindInList(word_list, "of") == 7u);
+  CHECK(FindInList(word_list, "words") == 10u);
+  CHECK(FindInList(word_list, "to") == 16u);
+  CHECK(FindInList(word_list, "use") == 19u);
+  CHECK(FindInList(word_list, "for") == 23u);
+  CHECK(FindInList(word_list, "testing") == 27u);
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 5: FindInList: Offset Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t FindInList(const std::string & word_list, const std::string & word, size_t pos=0);
+  std::string word_list="A,list,of,words,to,use,for,testing";
+  CHECK(FindInList(word_list, "A", 0) == 0u, "Starting at zero we should find 'a'");
+  CHECK(FindInList(word_list, "A", 1) == npos, "Starting at one we should NOT find 'a'");
+  CHECK(FindInList(word_list, "list", 0) == 2u);
+  CHECK(FindInList(word_list, "list", 2) == 2u);
+  CHECK(FindInList(word_list, "list", 10) == npos);
+  CHECK(FindInList(word_list, "use", 0) == 19u);
+  CHECK(FindInList(word_list, "use", 10) == 19u);
+  CHECK(FindInList(word_list, "use", 20) == npos);
+  CHECK(FindInList(word_list, "testing", 0) == 27u);
+  CHECK(FindInList(word_list, "testing", 20) == 27u);
+  CHECK(FindInList(word_list, "testing", 27) == 27u);
+  CHECK(FindInList(word_list, "testing", 28) == npos);
+  CHECK(FindInList(word_list, "testing", 1000) == npos, "Position out of range is failure to find."); 
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 6: FindInList: Duplicate Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t FindInList(const std::string & word_list, const std::string & word, size_t pos=0);
+  std::string word_list="one,two,one,two,three,two,one,one,one";
+  CHECK(FindInList(word_list, "one") == 0u);
+  CHECK(FindInList(word_list, "one",1) == 8u);
+  CHECK(FindInList(word_list, "one",2) == 8u);
+  CHECK(FindInList(word_list, "one",8) == 8u);
+  CHECK(FindInList(word_list, "one",9) == 26u);
+  CHECK(FindInList(word_list, "one",26) == 26u);
+  CHECK(FindInList(word_list, "one",27) == 30u);
+  CHECK(FindInList(word_list, "one",31) == 34u);
+  CHECK(FindInList(word_list, "two") == 4u);
+  CHECK(FindInList(word_list, "two",5) == 12u);
+  CHECK(FindInList(word_list, "two",13) == 22u);
+  CHECK(FindInList(word_list, "two",23) == npos);
+  CHECK(FindInList(word_list, "four") == npos);
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 7: FindInList: Substring Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t FindInList(const std::string & word_list, const std::string & word, size_t pos=0);
+  std::string word_list="this,test,is,testing,strings,with,substrings,duplicated,in,this,test";
+  //                     |=========|=========|=========|=========|=========|=========|=======
+  CHECK(FindInList(word_list, "is") == 10u);
+  CHECK(FindInList(word_list, "is", 11) == npos);
+  CHECK(FindInList(word_list, "test", 5) == 5u);
+  CHECK(FindInList(word_list, "test", 6) == 64u);
+  CHECK(FindInList(word_list, "strings") == 21u);
+  CHECK(FindInList(word_list, "strings",22) == npos);
+  CHECK(FindInList(word_list, "substrings") == 34u);
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 8: FindInList: Hidden [HIDDEN]
+
+Result: PASSED!
+
+
+
+Test Case 9: GetFirstInList: Simple Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  std::string GetFirstInList(const std::string & word_list,
+                            std::string * word1_ptr,
+                            std::string * word2_ptr);
+  std::string word1 = "turtle";
+  std::string word2 = "hare";
+  std::string list = "this,is,a,race,between,a,turtle,and,a,hare";
+  CHECK(GetFirstInList(list, &word1, &word2) == "turtle", "Check 1");
+  list = "sometimes,the,turtle,wins,even,though,everyone,expects,the,hare";
+  CHECK(GetFirstInList(list, &word1, &word2) == "turtle", "Check 2");
+  list = "but,usually,its,the,hare";
+  CHECK(GetFirstInList(list, &word1, &word2) == "hare", "Check 3");
+  list = "unless,the,turtle,races,itself";
+  CHECK(GetFirstInList(list, &word1, &word2) == "turtle", "Check 4");
+  list = "hair,is,not,a,valid,word";
+  CHECK(GetFirstInList(list, &word1, &word2) == "N/A", "Check 5");
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 10: GetFirstInList: Duplicate and Substring Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  std::string GetFirstInList(const std::string & word_list,
+                            std::string * word1_ptr,
+                            std::string * word2_ptr);
+  std::string word1 = "fast";
+  std::string word2 = "slow";
+  std::string list = "fast,is,fast,and,usually,before,slow";
+  CHECK(GetFirstInList(list, &word1, &word2) == "fast");
+  list = "faster,than,slow,is,not,enough,if,not,just,fast";
+  CHECK(GetFirstInList(list, &word1, &word2) == "slow");
+  list = "slow,slow,slow,can,be,the,only,way,to,go";
+  CHECK(GetFirstInList(list, &word1, &word2) == "slow");
+  list = "faster,slower,but,never,without,comparison";
+  CHECK(GetFirstInList(list, &word1, &word2) == "N/A");
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 11: GetFirstInList: Hidden [HIDDEN]
+
+Result: PASSED!
+
+
+
+Test Case 12: CountInList: Simple Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t CountInList(const std::string & word_list, const std::string & word);
+  CHECK(CountInList("one", "one") == 1u);
+  CHECK(CountInList("one", "two") == 0u);
+  CHECK(CountInList("one,two", "one") == 1u);
+  CHECK(CountInList("one,two,three", "one") == 1u);
+  CHECK(CountInList("one,two,three", "two") == 1u);
+  CHECK(CountInList("one,two,three,two,three,three", "one") == 1u);
+  CHECK(CountInList("one,two,three,two,three,three", "two") == 2u);
+  CHECK(CountInList("one,two,three,two,three,three", "three") == 3u);
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 13: CountInList: Substring Tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  size_t CountInList(const std::string & word_list, const std::string & word);
+  CHECK(CountInList("one", "done") == 0u);
+  CHECK(CountInList("done", "one") == 0u);
+  CHECK(CountInList("one,done", "one") == 1u);
+  CHECK(CountInList("done,one", "one") == 1u);
+  CHECK(CountInList("none,done,bone,cone,one,gone,zone,ones", "one") == 1u);
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 14: CountInList: Hidden [HIDDEN]
+
+Result: PASSED!
+
+
+
+Test Case 15: AtListPosition: many tests
+
+Result: PASSED!
+
+
+
+Source Code For Test:
+
+
+
+  bool AtListPosition(const std::string & word_list, const std::string & word, size_t pos);
+  std::string test_string = "a,string,for,automated,testing,of,various,word,positions";
+  size_t next_pos = 1;
+  for (size_t pos = 0; pos < test_string.size(); pos = next_pos) {
+    next_pos = std::min( test_string.find(',', pos+1), test_string.size() );
+    size_t start = pos ? (pos+1) : 0;
+    std::string word = test_string.substr(start, next_pos-start);
+    for (size_t i = 0; i < test_string.size(); ++i) {
+      bool match = (i==start);
+      CHECK(AtListPosition(test_string, word, i) == match, "Testing for word '", word, "' at position ", i, "; actually at position ", start);
+    }
+  }
+
+Your Output		Expected Output
+ 	
+
+Diff
+
+Test Case 16: Example IO Test from project description
+
+Result: PASSED!
+
+
+
+Input
+Kansas
+Virginia
+Virginia,Wyoming,Vermont
+NewMexico,Kansas,Alabama,Virginia,NewYork,WestVirginia,Arkansas,Virginia,Utah,Virginia
+Alaska
+
+Your Output		Expected Output
+Virginia 0 1
+Kansas 1 3
+N/A 0 0
+ 	
+Virginia 0 1
+Kansas 1 3
+N/A 0 0
+
+Diff
+Virginia 0 1
+Kansas 1 3
+N/A 0 0
+
+Test Case 17: More IO Tests
+
+Result: PASSED!
+
+
+
+Input
+Mal
+Jasnah
+Malificent,Mal,Vermont
+Jasnah,Kansas,Alabama,Jasnah,Josh,Charles,Jasnah,Virginia,Utah,Mal,Mal,Mal
+Charles,Josh
+Jasnah
+Malificent,Mal,Vermont,Jasnah
+Malificent,Mal,Vermont,Mal
+
+Your Output		Expected Output
+Mal 1 0
+Jasnah 3 3
+N/A 0 0
+Jasnah 0 1
+Mal 1 1
+Mal 2 0
+ 	
+Mal 1 0
+Jasnah 3 3
+N/A 0 0
+Jasnah 0 1
+Mal 1 1
+Mal 2 0
+
+Diff
+Mal 1 0
+Jasnah 3 3
+N/A 0 0
+Jasnah 0 1
+Mal 1 1
+Mal 2 0
+
+Test Case 18: Hidden IO Test [HIDDEN]
+
+Result: PASSED!
+
+
+
+
+To see a expanded results after submitting, click here: DETAILED RESULTS
+Inputs
+All inputs will be provided through standard input (that is, std::cin). The first two lines of these inputs will each contain a single "keyword". The remaining lines will each contain a full word list. Word lists are one or more words that are separated by commas, with no spaces or any other symbols.
+For example:
+Kansas
+Virginia
+Virginia,Wyoming,Vermont
+NewMexico,Kansas,Alabama,Virginia,NewYork,WestVirginia,Arkansas,Virginia,Utah,Virginia
+Alaska
+In this case, the keywords are “Kansas” and "Virginia", and then there are three lines of word lists. The word lists will never contain spaces or any characters other than letters (capital or lowercase) and numbers.
+Outputs
+For each word list provided, you must output (to standard out, std::cout) which of the two keywords comes first, or “N/A” if neither one is in the word list at all. You should then output (on the same line) a count of how many times each word appeared, in order. Note that you should NOT count words that are merely a substring of another word.
+For the input example above, you should output:
+Virginia 0 1
+Kansas 1 3
+N/A 0 0
+There are three lines, one for each word list. In the first word list Virginia appears first (as indicated on the first line of output) and only once. Kansas never appears at all. So the word counts are 0 Kansas and 1 Virginia.
+The second line has Virginia appearing three times and Kansas only once, but Kansas appears first so it is the name that begins the line, followed by the two counts. Since a word should not be counted if it is just a substring of another word, “Virginia” should NOT be counted four times just because it is part of "WestVirginia".
+The final word list has neither state name in it, so “N/A” is printed in the field for which came first, and then zeros are printed for both counts since neither one was actually present.
+Implementation
+You should implement this program using four functions, described below, plus the main() function. You may, additionally create any number of extra functions that you believe will help you to efficiently produce the needed output.
+We recommend that you implement these required functions in the order described. The first function may be helpful to you in implementing the second function, and the second function will be helpful in implementing the third and fourth functions. All four functions will be tested in unit tests to help you craft them correctly.
+Finally, you must implement the main() function to produce the desired output for the program, as described above.
+Notes on parameter and return types:
+Whenever you are talking about a position in a string, you should use the type size_t to be consistent with the standard library.
+When you create a function, if an input is a string that is not changed by the function, you should pass that string as a "const reference". The reference ensures that the whole string does not need to be copied (a time saver for strings!) and the const lets a user know that the string won’t be altered by the function even though it’s being passed by reference.
+You should almost never return a reference from a stand-alone function. There are rare circumstance where this might be the right thing to do, but usually only under much more advanced use conditions. Likewise you should almost never mark a return type as const.
+Function: AtListPosition
+The AtListPosition function should take three arguments: a word list (as a string), a word (as a string), and a position. It should return a Boolean value indicating whether or not the provided word begins at the specified position in the word list. Remember, a match that is actually just a part of a longer string should NOT count as having the word at that position of the word list.
+Function FindInList
+The FindInList function should have two to three parameters, very similar to the previous function: a word list (as a string), a word (as a string), and a start position (which should default to 0 if only two arguments are provided). It should return the first position in the word list where the provided word is found, starting its search from the start position.
+Remember, making good use of AtListPosition will likely simplify your implementation of this function.
+Function: GetFirstInList
+The GetFirstInList function should take three arguments: word list and pointers to two strings, word1 and word2. It should return a regular string equal to the contents of word1 or word2, whichever word appears first in the word list. Clearly FindInList will be very helpful in allowing you to identify which one comes first.
+Why are the inputs to this function supposed to be pointers to strings? Is it just to make your life more difficult? Yes, in an sense it is. There are few simple problems where pointers are needed to implement a solution, so we are simply going to require you use pointers in this question so that you can get some (light) experience trying them out.
+Function: CountInList
+The CountInList function has two parameters: a word list and a word (both strings). This function should return a simple count of how many times the word appears in the word list.

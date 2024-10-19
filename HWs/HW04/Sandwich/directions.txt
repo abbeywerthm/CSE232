@@ -1,0 +1,18 @@
+In the file Sandwich/main.cpp, you need to write a function that takes a string (called line) and a pointer to a char (bread_ptr), named Sandwich. This function should return a pointer to a char. That returned pointer to char should be the first instance in the string where the bread_ptr's char is both before and after the focal character.
+
+For example, in the string "Char is a character", if the bread_ptr points at an a, the function should return a pointer that points at the first r char in “Character” as that r has an a immediately before and after it.
+
+If there is no sandwich in line, then please return a null pointer (a pointer with the value of nullptr).
+
+Please be sure that the pointer you return points at a character inside the string (not just a character with the value you want). The test cases confirm this by changing the character pointed at and checking if the string has changed. 
+
+Example test case:
+std::string line = "Char is a character";
+char bread = 'a';
+char * filling_ptr = Sandwich(line, &bread);
+CHECK(*filling_ptr == 'r');
+
+// Make sure that the pointer points into the string
+CHECK(line == "Char is a character");
+*filling_ptr = 'Z';
+CHECK(line == "Char is a chaZacter");
