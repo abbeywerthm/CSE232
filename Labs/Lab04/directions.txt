@@ -1,0 +1,66 @@
+John Napier was a Scottish mathematician who lived in the late 16th and early 17th centuries. He is known for a number of mathematical inventions, one of which is termed location arithmetic.
+Location arithmetic is a way to represent numbers as binary values, using a notation that is not positional, but representational. You can read a detailed description here, but these are the basics:
+Napier used letters to represent powers of two. The position of these letters is unimportant, allowing for multiple representations of the same number. For example, in location arithmetic:
+
+    a=1,b=2,c=4,d=8,e=16,f=32,...
+
+And thus:
+
+    acf=1+4+32=37
+
+    caf=4+1+32=37
+
+For easier reading, the letters are typically sorted. Napier allowed for redundant occurrences of letters, though he acknowledged that there is a normal form that has no repeats. He described this as the extended (repeated okay in any order) vs. abbreviated (no repeats and sorted) form. To create the abbreviated form, any pair of letters can be reduced to a single occurrence of the next "higher letter".
+
+For example, the extended form cabdbc would translate to 
+4+1+2+8+2+4 = 21, but that can also be sorted to abbccd and then simplified:
+
+abbccd→acccd→acdd→ace=1+4+16=21
+
+(extended form) → (reduce 2b’s to c) → (reduce 2d’s to e) → (abbreviated form) → 1 + 4 + 16 = 21
+
+**PROGRAM SPECIFICATIONS**
+Your job is to write functions that can convert back and forth between location and decimal representations, as well as some support functions for the process.
+
+    std::int64_t LocToDec(std::string const & loc)
+
+Converts a location arithmetic string to an integer.
+
+    std::string Abbreviate(std::string const & loc)
+
+Takes a location string and reduces it to its abbreviated form. We want you to experiment with string manipulation so you may not convert it to an integer first. You must do the abbreviation directly.
+ 
+    std::string DecToLoc(std::int64_t dec)
+
+Converts an integer to an abbreviated location string.
+
+    std::int64_t AddLoc(std::string const & loc1, std::string const & loc2)
+
+Takes two location strings, adds them, and provides the integer result. For this function, think about following these steps:
+
+1. Concatenate the strings
+2. Reduce the combination string using your Abbreviate() function
+3. Convert the result using your LocToDec() function
+
+Write a main() function that shows off your work.
+
+1.Prompt for two elements: a location string, and an integer.
+2. Using LocToDec(), print the location string and the resulting integer.
+3. Using Abbreviate(), print the location string and its reduced form.
+4. Using DecToLoc(), print the integer and its location string.
+5. Prompt for two more location strings.
+6. Using AddLoc(), add the two location strings and print the result.
+
+Example interaction with the final program:
+
+Give me a location string:
+abbccd
+Give me an integer:
+37
+abbccd to dec: 21
+abbccd abbreviated: ace
+37 to loc: acf
+Give me two more location strings:
+abc
+bcd
+Sum of abc and bcd is: 21

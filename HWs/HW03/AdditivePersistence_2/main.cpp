@@ -1,6 +1,6 @@
 #include <iostream>
 int main() {
-	int value{0};
+  int value{0};
 	while (std::cin >> value) {
 		int root{0};
     while(value >=100){

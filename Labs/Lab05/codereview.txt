@@ -1,0 +1,52 @@
+If you are editing code, take a few minutes to look at the code around you and determine its style. If there are spaces around if clauses, you should add them, too. If there are comments with little boxes of stars around them, make your comments have little boxes of stars around them, too.
+For example:
+
+/**********************************************************
+ * Function to calculate the number of unique pairs that
+ * can be made from N distinct items.
+ * Parameters:
+ *  int N - The number of distinct items to choose from.
+ * Return Value:
+ *  An int indicating the number of pairs that can be made
+ *********************************************************/
+ int Choose2(int N) { return N * (N-1) / 2; }
+
+ Here is another example of how the exact same code might be structured.
+In this case it’s for a project that uses an automatic documentation system,
+so @s in the comments indicate what information is being provided.
+/// @brief Function to calculate the number of unique pairs that
+///        can be made from N distinct items.
+/// @param N - The number of distinct items to choose from.
+/// @return The number of pairs that can be made
+int Choose2(int N)
+{
+  return N * (N-1) / 2;
+}
+Both of these options are clear, yet obviously look different. Just be consistent in your own code and respect the style used when modifying code with others.
+The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you are saying, rather than on how you are saying it. We present global style rules here so people know the vocabulary. But, local style is also important. If code you add to a file looks drastically different from the existing code around it, the discontinuity throws readers out of their rhythm when they go to read it. Try to avoid this.
+
+
+if you were trying to create a regular variable to indicate "miles per hour", which of the follow is the correct way to name it according to the Google Style Guide?
+    A:  miles_per hour
+
+options to choose from :
+milesperhour
+miles_per_hour
+milesPerHour
+MilesPerHour
+Miles_Per_Hour
+MILESPERHOUR
+MILES_PER_HOUR
+
+The Google style guide requires most lines of code to be no wider than 80 characters? Which of the following is NOT an exception to this rule?
+    A: A function call with too many arguments for them all to fit within 80 characters.
+
+
+options to choose from :
+A function call with too many arguments for them all to fit within 80 characters.
+
+A comment line that you believe would reduce readability if it gets split.
+
+A string literal that would need to have a line break placed in the middle of it.
+
+A preprocessor #include statement whose path and filename push the line over 80 characters.

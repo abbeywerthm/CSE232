@@ -7,4 +7,4 @@ Even words with numb3rs in them count
 
 
 Expected output:
-TiaSwflovtEwwnritcaltsww
+TiaSwflovtEwwnritcaltswwgit 

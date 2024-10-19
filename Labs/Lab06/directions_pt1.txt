@@ -1,0 +1,68 @@
+In the file "Spirals/main.cpp", write a function Counting_Spiral() which generated a 2D vector of characters representing a spiral of numbers as show below.
+
+4 3 2
+5 0 1
+6 7 8
+
+    - The numbers will start at the center of the spiral and spiral outwards in the manner shown above.
+    - The parameter length is the side length of the square and will always be an odd number, therefore there is always center.
+    - The numbers will be modded (%) by 10 to ensure they are single digits.
+
+Here is an example with length = 5 without the mod 10 (Not what your function should output)
+
+16 15 14 13 12
+17  4  3  2 11
+18  5  0  1 10
+19  6  7  8  9
+20 21 22 23 24
+
+And here is the same example with the mod 10 (Desired Output)
+
+6 5 4 3 2
+7 4 3 2 1
+8 5 0 1 0
+9 6 7 8 9
+0 1 2 3 4
+
+Here is what your vector indexes should look like for length = 3
+
+[0][0] = '4' [0][1] = '3' [0][2] = '2'
+[1][0] = '5' [1][1] = '0' [1][2] = '1'
+[2][0] = '6' [2][1] = '7' [2][2] = '8'
+
+**ALGORITHM**
+
+    - The starting point of every spiral is the 0 in the center
+    - Always initialize vectors to the final size of the spiral
+    - You should assume you’re done when you hit the bounds of the vectors
+    - Use a (x,y) plane to visualize the algorithms first
+    - Focus on creating some small spirals (3x3 & 5x5) first
+
+There are two algorithms to generate the spiral:
+
+    1. Imagine line segments spiraling out from the center. Each line segment bellow is identified by a different letter, and their direction rotates through the cardinal directions (up, down, left right). Every 2 segments the length increases by 1.
+
+h h h h g
+i d d c g
+i e a b g
+i e f f f
+i j j j j j
+
+b = 1 right       f = 3 right
+c = 1 up          g = 3 up
+d = 2 left        h = 4 left
+e = 2 down        i = 4 down
+                  j = 5 right
+
+    2. Define bounds within the x,y plane to create a small portion of the spiral fill it in, and then increase the bounds by one in each direction and repeat. When filling in, add numbers in a direction until you hit a bound, then change direction.       
+
+   1x1           3x3           5x5            
+
+x x x x x     x x x x x     6 5 4 3 2
+x x x x x     x 4 3 2 x     7 4 3 2 1
+x x 0 x x --> x 5 0 1 x --> 8 5 0 1 0 --> NxN
+x x x x x     x 6 7 8 x     9 6 7 8 9
+x x x x x     x x x x x     0 1 2 3 4
+
+Test locally and visually inspect your output with Two_D_Vector_To_String(). Visualizing whats going on is key to developing the algorithm.
+

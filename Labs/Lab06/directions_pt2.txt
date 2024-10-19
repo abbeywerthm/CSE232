@@ -1,0 +1,76 @@
+Write a function Prime_Spiral() which generates a 2D vector of characters representing the presence or lack of presence of a prime number in it’s place. All functionality of the spiral nature of the assignment is carried over from the previous problem.
+Here’s a 3x3 example:
+
+
+  O O 
+O     
+  O   
+
+  Compared to a spiral of numbers:
+
+4 3 2
+5 0 1
+6 7 8
+
+And including just the primes from above:
+
+  3 2
+5
+  7
+
+The patterns of the prime spiral are really seen at larger scales. Copy and paste this in your editor to see it fully:
+
+
+          O           O           O           O               O                   O   
+        O                           O       O               O       O               O 
+  O           O           O       O   O       O                           O       O   
+                O   O           O       O   O                                         
+      O       O   O                                           O           O   O       
+    O           O   O           O       O                       O                     
+                                      O       O   O       O               O           
+                                    O       O               O       O                 
+  O   O               O                       O   O           O                   O   
+    O           O           O   O           O           O                   O   O     
+  O   O       O   O           O                       O       O                       
+    O   O                   O               O           O       O   O                 
+          O           O               O       O   O       O   O       O           O   
+O           O       O               O                   O               O           O 
+  O   O   O               O       O   O                   O       O       O   O       
+                O           O           O   O           O       O   O                 
+                                      O               O                               
+    O       O       O       O   O       O   O       O   O           O   O   O         
+                                              O               O                   O   
+O       O               O       O   O       O   O                       O             
+  O       O   O   O   O   O   O   O   O   O O O   O   O   O       O   O   O           
+                                        O                                             
+  O                           O       O   O                                           
+O               O               O   O       O       O   O       O       O   O       O 
+                                  O   O       O           O   O       O               
+O           O       O   O       O   O           O           O                       O 
+      O           O       O           O                   O               O   O       
+                                O           O       O               O           O     
+  O   O                   O   O                       O                               
+    O   O           O               O       O   O               O           O       O 
+          O           O           O   O       O           O           O   O       O   
+                        O                   O   O           O                         
+          O   O   O       O                       O   O                       O       
+                O   O           O           O       O   O                   O         
+      O       O               O                   O               O           O       
+        O   O                   O   O       O   O                   O       O   O     
+                          O       O           O           O                           
+O                   O   O           O                                   O             
+  O           O               O                       O       O           O       O   
+    O                                                           O           O         
+      O       O   O       O           O                       O                       
+                                    O           O       O   O                         
+          O                       O               O                               O 
+
+You can read more here: https://mathworld.wolfram.com/PrimeSpiral.html
+
+Your task is to replace the indexes of each of the numbers in the spiral with the character ‘O’ (The letter, not number) if the number is prime, and a space ' ' if the number is not prime.
+
+Tips and Tricks:
+
+    - Try to keep track of how many indexes you have iterated over
+    - Write function that takes a number and returns whether it is prime or not
+    - Test with 3x3 and 5x5 first. If you solve that, you’ve likely solved the entire problem
