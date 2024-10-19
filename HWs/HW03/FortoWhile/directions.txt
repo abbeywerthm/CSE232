@@ -1,0 +1,6 @@
+In the file For2While/main.cpp there is a working program that converts standard input to standard output. The exact purpose of the program isn’t important, however, you need to remove all uses of the for keyword from the program. There are test cases to confirm that the program’s behavior hasn’t changed as well as test cases to confirm that every use of the for keyword have been removed.
+
+
+If you break the functionality (and cause all the test cases to fail), there’s a copy of the starting code in For2While/main.cpp.bak.
+Be sure the for keyword is not found anywhere in your code, not even in a comment as that will cause the last two test cases to fail.
+This problem is worth 2 points.
